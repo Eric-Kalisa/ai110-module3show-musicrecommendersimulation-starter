@@ -23,13 +23,36 @@ Some prompts to answer:
 
 - What features does each `Song` use in your system
   - For example: genre, mood, energy, tempo
+
+  genre, mood,energy and acousticness
+
+
 - What information does your `UserProfile` store
+
+Preference in: genre, mood,energy and acousticness
+
+
 - How does your `Recommender` compute a score for each song
+
+If likes_acoustic=True: + song.acousticness (0-1)
+If likes_acoustic=False: + (1.0 - song.acousticness) (0-1)
+
+Genre Match: +2.0 if exact match with user's favorite_genre, 0 otherwise (highest weight as genre is fundamental)
+Mood Match: +1.0 if exact match with user's favorite_mood, 0 otherwise
+Energy Similarity: 1.0 - |song.energy - user.target_energy| (ranges 0-1)
+
+Total Score Range: 0-5.0
+
 - How do you choose which songs to recommend
+
+Rank based on high score the songs to recommend
 
 You can include a simple diagram or bullet list if helpful.
 
 ---
+Real-world recommendation systems typically score each item by how well it matches a user’s profile and then rank items so the best matches appear first; they often blend user history, item metadata, and business rules like freshness or diversity. My version is a simple content-based recommender that prioritizes songs matching the user’s favorite genre and mood, with secondary emphasis on energy closeness and acoustic preference, so the top results are those that best align with the explicit user tastes provided.
+
+This system will over-prioritize genre. 
 
 ## Getting Started
 
