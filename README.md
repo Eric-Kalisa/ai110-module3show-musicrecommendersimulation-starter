@@ -54,6 +54,9 @@ Real-world recommendation systems typically score each item by how well it match
 
 This system will over-prioritize genre. 
 
+![alt text](<Screenshot 2026-04-18 015352.png>) ![alt text](<Screenshot 2026-04-18 234417.png>)
+
+
 ## Getting Started
 
 ### Setup
